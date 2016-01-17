@@ -1,0 +1,39 @@
+<!-- code by Leaf -->    	
+<!doctype html> 
+<html> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="description" content="网页描述" />
+    <meta name="Keywords" content="关键字" />
+    <title></title>
+<style type="text/css">
+	*{margin:0;padding:0;}
+	body{text-align: center;padding-top:300px;}
+	span{text-shadow:0 0 0 #000;font-size: 30px;}
+	div{width: 100px;height: 100px;background: #f90;position: absolute;top:0;left:0;box-shadow:0 0 20px #f60;border-radius:50%;}
+</style>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded',function(){
+		var oS=document.querySelector('span');
+		var oDiv=document.querySelector('div');
+		document.addEventListener('mousemove',function(ev){
+			var x1=ev.pageX;
+			var y1=ev.pageY;
+			oDiv.style.left=x1-oDiv.offsetWidth/2+'px';
+			oDiv.style.top=y1-oDiv.offsetHeight/2+'px';
+			var x2=oS.offsetLeft+oS.offsetWidth/2;
+			var y2=oS.offsetTop+oS.offsetHeight/2;
+			var disx=x2-x1;
+			var disy=y2-y1;
+			var dis=Math.sqrt(disx*disx+disy*disy)/20;
+			oS.style.textShadow=disx/2+'px '+disy/2+'px '+dis+'px #000';
+		},false)
+	},false)
+</script>
+</head>
+   
+<body>
+<div></div>
+<span>世界上有一只叫Alice的鲸！</span>
+</body>
+</html>

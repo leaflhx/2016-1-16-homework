@@ -1,0 +1,39 @@
+<!-- code by Leaf -->    	
+<!doctype html> 
+<html ng-app="abc"> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="description" content="网页描述" />
+    <meta name="Keywords" content="关键字" />
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="javascript" href="./js/ ">
+    <title></title>
+<script src="angular.js"></script>
+
+<script type="text/javascript">
+
+	var app = angular.module('abc',[]);
+	app.controller('aaa',function($scope,$http){
+	//$http
+	// 	get
+	//  post
+	// 	jsonp
+	//$http.get(url,{params:{}}).success(fn).error(fn);
+	$http.get('a.txt',{}).success(function(result){
+		$scope.arr = result;
+	}).error(function(){
+		
+	});
+});
+
+</script>
+</head>
+   
+<body ng-controller="aaa">
+<ul >
+	<li ng-repeat="item in arr">我叫{{item.name}},今年{{item.age}}岁</li>
+
+</ul>
+</body>
+</html>
